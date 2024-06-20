@@ -11,7 +11,7 @@ const FeedbackForm = () => {
   const submitFeedback = async () => {
     try {
       const token = await getAccessTokenSilently();
-      await axios.post('/api/feedback', { category, rating, comments }, {
+      await axios.post('http://localhost:5000/api/feedback', { category, rating, comments }, {
         headers: {
           Authorization: `Bearer ${token}`
         }

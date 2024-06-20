@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { domain, clientId, clientSecret, audience } = require('../config/authConfig');
+const { domain, clientId, clientSecret, audience, redirectUri } = require('../config/authConfig');
 const axios = require('axios');
 
 exports.login = async (req, res) => {
@@ -12,7 +12,7 @@ exports.login = async (req, res) => {
       audience: audience,
       grant_type: 'authorization_code',
       code: token,
-      redirect_uri: 'YOUR_REDIRECT_URI'
+      redirect_uri: redirectUri
     });
 
     const { access_token } = response.data;
